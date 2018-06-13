@@ -58,6 +58,7 @@ WebSocket::WebSocket(uint16_t port)  : ISocket(port), connection_hdl(nullptr) {
             websocketpp::lib::placeholders::_1,
             websocketpp::lib::placeholders::_2
     ));
+    ws.set_listen_backlog(64);
 }
 
 void WebSocket::reply(const std::string &message) {
